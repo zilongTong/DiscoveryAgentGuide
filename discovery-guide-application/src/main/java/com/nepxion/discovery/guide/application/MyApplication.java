@@ -37,7 +37,7 @@ public class MyApplication {
     public static void invoke() {
         RestTemplate restTemplate = new RestTemplate();
 
-        for (int i = 1; i <= 20; i++) {
+        for (int i = 1; i <= 10; i++) {
             restTemplate.getForEntity("http://localhost:8080/index/" + i, String.class).getBody();
         }
     }
@@ -49,12 +49,12 @@ public class MyApplication {
 
         MyContext.getCurrentContext().setAttributes(attributes);
 
-        LOG.info("主线程：{}", MyContext.getCurrentContext().getAttributes());
+        LOG.info("主线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                LOG.info("[Spleep之前] 子线程：{}", MyContext.getCurrentContext().getAttributes());
+                LOG.info("子线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
 
                 try {
                     Thread.sleep(5000);
@@ -62,7 +62,7 @@ public class MyApplication {
                     e.printStackTrace();
                 }
 
-                LOG.info("[Spleep之后] 子线程：{}", MyContext.getCurrentContext().getAttributes());
+                LOG.info("Sleep 5秒之后，子线程ThreadLocal：{} ", MyContext.getCurrentContext().getAttributes());
             }
         }).start();
 
