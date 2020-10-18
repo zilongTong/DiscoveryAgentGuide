@@ -49,12 +49,12 @@ public class MyApplication {
 
         MyContext.getCurrentContext().setAttributes(attributes);
 
-        LOG.info("主线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
+        LOG.info("【主】线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                LOG.info("子线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
+                LOG.info("【子】线程ThreadLocal：{}", MyContext.getCurrentContext().getAttributes());
 
                 try {
                     Thread.sleep(5000);
@@ -62,7 +62,7 @@ public class MyApplication {
                     e.printStackTrace();
                 }
 
-                LOG.info("Sleep 5秒之后，子线程ThreadLocal：{} ", MyContext.getCurrentContext().getAttributes());
+                LOG.info("Sleep 5秒之后，【子】线程ThreadLocal：{} ", MyContext.getCurrentContext().getAttributes());
             }
         }).start();
 
