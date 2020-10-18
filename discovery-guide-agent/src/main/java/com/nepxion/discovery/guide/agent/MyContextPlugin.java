@@ -9,7 +9,7 @@ package com.nepxion.discovery.guide.agent;
  * @version 1.0
  */
 
-import com.nepxion.discovery.plugin.strategy.agent.plugin.AbstractPlugin;
+import com.nepxion.discovery.agent.plugin.AbstractPlugin;
 
 public class MyContextPlugin extends AbstractPlugin {
     private Boolean threadMyPluginEnabled = Boolean.valueOf(System.getProperty("thread.myplugin.enabled", "false"));

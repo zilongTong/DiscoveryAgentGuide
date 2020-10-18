@@ -11,8 +11,8 @@ package com.nepxion.discovery.guide.agent;
 
 import java.util.Map;
 
+import com.nepxion.discovery.agent.threadlocal.AbstractThreadLocalHook;
 import com.nepxion.discovery.guide.sdk.MyContext;
-import com.nepxion.discovery.plugin.strategy.agent.threadlocal.AbstractThreadLocalHook;
 
 public class MyContextHook extends AbstractThreadLocalHook {
     @Override
